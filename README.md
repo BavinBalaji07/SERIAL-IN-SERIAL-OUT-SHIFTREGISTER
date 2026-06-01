@@ -6,7 +6,7 @@ To implement  SISO Shift Register using verilog and validating their functionali
 
 **SOFTWARE REQUIRED:**
 
-Quartus prime
+Quartus II or Quarus prime
 
 **THEORY**
 
@@ -25,18 +25,49 @@ Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and a
 
 **Procedure**
 
-/* write all the steps invloved */
+1. Open Quartus and create a new Verilog file.
+2. Copy and paste the corrected code and save the file.
+3. Compile the program to check for errors.
+4. Generate the RTL schematic and timing diagram.
+5. Simulate the design to verify the serial shift operation.
 
 **PROGRAM**
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming.
 
-Developed by: RegisterNumber:
+Developed by:Bavin Balaji R
+RegisterNumber:212225040045
+
+
+module siso(clk,clear,si,so);
+input clk,si,clear;
+output so;
+reg so;
+reg [3:0] tmp;
+always @(posedge clk )
+begin
+  if (clear)
+      tmp <= 4'b0000;
+  else
+  begin 
+    tmp <= tmp << 1;
+    tmp[0] <= si;
+    so = tmp[3];
+	 end
+end 
+endmodule
+
 
 */
 
 **RTL LOGIC FOR SISO Shift Register**
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/daf22a8c-2bda-410a-9c35-507bf0bed432" />
+
 
 **TIMING DIGRAMS FOR SISO Shift Register**
+<img width="1919" height="322" alt="image" src="https://github.com/user-attachments/assets/3b7f0aeb-0d41-47f7-8cb1-b7f7a244dc68" />
+
 
 **RESULTS**
+
+Thus,the Serial-In Serial-Out shift register is implemented and verified.
